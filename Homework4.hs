@@ -66,9 +66,17 @@ reversed xs = (last xs):(reversed (init xs))
 --------------------------------------------------------------------------------
 
 clockwise :: [[Int]] -> [[Int]]
+-- Edge cases when the input is empty
 clockwise [] = []
 clockwise [[]] = [[]]
-clockwise xss = [[ x | x <- xs] | xs <- (reversed xss)]
+-- Setup for the recursive clockwise function
+-- Reverses the original 2d array then weaves them together
+-- The init is because the empty clockwiseRec would add an empty list inside the end of the 2d array
+clockwise xss = init (clockwiseRec (reversed xss))
+-- Base case to finish recursion
+clockwiseRec [] = []
+clockwiseRec xss = [x | (x:xs) <- xss]:(clockwiseRec [xs | (x:xs) <- xss])
+--clockwiseRec xss = [[ x | x <- xs] | xs <- (reversed xss)]
 
 --------------------------------------------------------------------------------
 
