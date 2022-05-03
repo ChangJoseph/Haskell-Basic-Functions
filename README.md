@@ -1,6 +1,6 @@
 # Haskell Basic Functions
 
-A Haskell project consisting of all things Haskell from GMU CS 463 class
+A Haskell project consisting of all things Haskell from Comparative Languages class
 
 ## Contributors
 Joseph Chang
